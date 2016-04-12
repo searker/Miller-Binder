@@ -12,22 +12,22 @@ return
 	ic()
 	if(IsPlayerDriver())
 	{
-		if(GetVehicleLockState() == 0)
+		if(IsVehicleLocked() == 0)
 			SendChat("/lock")
-		if(GetVehicleEngineState() == 0)
+		if(IsVehicleEngineEnabled() == 0)
 		{
 			sleep 500
 			SendChat("/engine")
-			if((A_Hour >= 20 || A_Hour <= 07) && GetVehicleLightState() == 0)
+			if((A_Hour >= 20 || A_Hour <= 07) && IsVehicleLightEnabled() == 0)
 			{
 				sleep 500
 				SendChat("/lights")
 			}
 		}
-		if(GetVehicleEngineState() == 1)
+		if(IsVehicleEngineEnabled() == 1)
 		{
 			SendChat("/engine")
-			if(GetVehicleLightState() == 1)
+			if(IsVehicleLightEnabled() == 1)
 			{
 				sleep 500
 				SendChat("/lights")
@@ -63,7 +63,7 @@ return
 ~j::
 {
 	ic()
-	if(GetPlayerInteriorId() == 0)
+	if(IsPlayerInInterior() == 0)
 		SendChat("/enter")
 	else
 		SendChat("/exit")

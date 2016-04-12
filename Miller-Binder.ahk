@@ -3,13 +3,12 @@
 #UseHook, On
 #NoEnv
 
-IfNotExist, %A_AppData%\logan_miller\multi-keybinder\
-	FileCreateDir, %A_AppData%\logan_miller\multi-keybinder
-SetWorkingDir, %A_AppData%\logan_miller\multi-keybinder\
+IfNotExist, %A_AppData%\logan_miller\miller-binder\
+	FileCreateDir, %A_AppData%\logan_miller\miller-binder
+SetWorkingDir, %A_AppData%\logan_miller\miller-binder\
 FileAppend, , settings.ini
 
-#Include samp.ahk
-;~ #Include overlay.ahk
+#Include SAMP_API.ahk
 #Include INI.ahk
 #Include TIMER.ahk
 #Include FUNKTIONEN.ahk
