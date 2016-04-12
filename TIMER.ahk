@@ -1,0 +1,1 @@
+SetTimer, LockCheck, 1500

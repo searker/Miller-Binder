@@ -1,0 +1,1 @@
+IniRead, v_lockcheck, settings.ini, autosys, lockcheck, 1
