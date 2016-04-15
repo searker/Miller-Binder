@@ -6,7 +6,7 @@ LockCheck:
 			SetTimer, LockCheck, 500
 		else
 			SetTimer, LockCheck, 1500
-		if(IsVehicleLocked()==0 && IsVehicleEngineEnabled()==1 && IsPlayerDriver()==1)
+		if(GetVehicleLockState()==0 && GetVehicleEngineState()==1 && IsPlayerDriver()==1)
 			SendChat("/lock")
 	}
 }

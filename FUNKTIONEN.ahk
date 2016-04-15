@@ -1,12 +1,12 @@
 ic()
 {
-	if(IsChatOpen())
+	if(IsInChat())
 		Exit
 }
 
 co()
 {
-	if(IsChatOpen())
+	if(IsInChat())
 	{
 		SendInput ^a
 		SendInput {del}
