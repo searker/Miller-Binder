@@ -52,3 +52,39 @@ return
 	co()
 	SendChat("/drugs harvest")
 return
+
+:?:/li::
+	co()
+	SendChat("/loadimport 1000")
+return
+
+:?:/lio::
+	co()
+	SendChat("/loadimport 1000")
+	SendChat("/overload 500")
+return
+
+:?:/si::
+	co()
+	SendChat("/sellimport 1000")
+return
+
+:?:/sio::
+	co()
+	SendChat("/sellimport 1500")
+return
+
+:?:/gtd::
+	co()
+	SendChat("/gettrailer destroy")
+return
+
+:?:/gtw::
+	co()
+	SendChat("/gettrailer waren")
+return
+
+:?:/gtb::
+	co()
+	SendChat("/gettrailer benzin")
+return
