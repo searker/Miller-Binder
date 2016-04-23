@@ -19,3 +19,22 @@ return
 dq:
 	ExitApp
 return
+
+Overlay:
+	TextSetString(ov_hp, GetPlayerHealth())
+	
+	If(getPlayerInteriorID() == 0){
+		coords := GetCoordinates()
+		TextSetShown(ov_location, 1)
+		TextSetString(ov_location, CalculateCity(coords[1], coords[2], coords[3]) . " | " . CalculateZone(coords[1], coords[2], coords[3]))
+	}
+	else
+		TextSetShown(ov_location, 0)
+	
+	If(isPlayerInAnyVehicle() == 1){
+		TextSetShown(ov_dl, 1)
+		TextSetString(ov_dl, GetVehicleHealth())
+	}
+	else
+		TextSetShown(ov_dl, 0)
+return
