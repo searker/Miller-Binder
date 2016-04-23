@@ -1,6 +1,6 @@
 ﻿#NoEnv 
 
-PATH_OVERLAY := RelToAbs(A_ScriptDir, "..\..\bin\dx9_overlay.dll")
+PATH_OVERLAY := RelToAbs(A_ScriptDir, "dx9_overlay.dll")
 
 hModule := DllCall("LoadLibrary", Str, PATH_OVERLAY)
 if(hModule == -1 || hModule == 0)
@@ -52,6 +52,10 @@ HideAllVisual_func 		:= DllCall("GetProcAddress", UInt, hModule, Str, "HideAllVi
 
 GetFrameRate_func 		:= DllCall("GetProcAddress", UInt, hModule, Str, "GetFrameRate")
 GetScreenSpecs_func 	:= DllCall("GetProcAddress", UInt, hModule, Str, "GetScreenSpecs")
+
+SetCalculationRatio_func:= DllCall("GetProcAddress", UInt, hModule, Str, "SetCalculationRatio")
+
+SetOverlayPriority_func := DllCall("GetProcAddress", UInt, hModule, Str, "SetOverlayPriority")
 
 Init()
 {
@@ -303,6 +307,20 @@ GetScreenSpecs(ByRef width, ByRef height)
 {
 	global GetScreenSpecs_func
 	res := DllCall(GetScreenSpecs_func, IntP, width, IntP, height)
+	return res
+}
+
+SetCalculationRatio(width, height)
+{
+	global SetCalculationRatio_func
+	res := DllCall(SetCalculationRatio_func, Int, width, Int, height)
+	return res
+}
+
+SetOverlayPriority(id, priority)
+{
+	global SetOverlayPriority_func
+	res := DllCall(SetOverlayPriority_func, Int, id, Int, priority)
 	return res
 }
 
