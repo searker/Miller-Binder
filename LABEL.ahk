@@ -21,6 +21,9 @@ dq:
 return
 
 Overlay:
+	IfWinNotActive, GTA:SA:MP
+		return
+	
 	TextSetString(ov_hp, GetPlayerHealth())
 	
 	If(getPlayerInteriorID() == 0){
@@ -33,7 +36,7 @@ Overlay:
 	
 	If(isPlayerInAnyVehicle() == 1){
 		TextSetShown(ov_dl, 1)
-		TextSetString(ov_dl, GetVehicleHealth())
+		TextSetString(ov_dl, "DL: " . GetVehicleHealth())
 	}
 	else
 		TextSetShown(ov_dl, 0)
