@@ -23,8 +23,15 @@ return
 Overlay:
 	IfWinNotActive, GTA:SA:MP
 		return
+	IfWinNotExist, GTA:SA:MP
+	{
+		SetTimer, Overlay, Off
+		DestroyAllVisual()
+		return
+	}
 	
 	TextSetString(ov_hp, GetPlayerHealth())
+	TextSetString(ov_fps, GetFrameRate())
 	
 	If(getPlayerInteriorID() == 0){
 		coords := GetCoordinates()

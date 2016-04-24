@@ -99,8 +99,9 @@ return
 	}
 	else{
 		ov_hp := TextCreate("Arial", 5, true, false, 718, 92, 0xFF34CB5A, "HP", false, true)
-		ov_dl := TextCreate("Arial", 5, true, false, 110, 412, 0xFF26761B, "DL", false, true)
+		ov_dl := TextCreate("Arial", 5, true, false, 110, 412, 0xFF26761B, "DL", true, true)
 		ov_location := TextCreate("Arial", 6, true, false, 79, 440, 0xFF585858, "LOCATION", true, true)
+		ov_fps := TextCreate("Arial", 8, false, false, 785, 580, 0xFF585858, "FPS", true, true)
 		AddMessageToChatWindow("Ov an")
 		SetTimer, Overlay, 250
 	}
