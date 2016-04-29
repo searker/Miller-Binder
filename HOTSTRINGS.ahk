@@ -106,3 +106,17 @@ return
 		SetTimer, Overlay, 250
 	}
 return
+
+:?:/sm::
+	co()
+	SendChat("/m Wer Invite braucht: ""/showme rot"" | Wer Invite hat: ""/showme gruen""")
+	SendChat("/m Genau so schreiben, dann klappt das auch.")
+return
+
+:?:/ab::
+	co()
+	SendChat("/p")
+	SendChat("Sie sind mit Logan Miller verbunden. Aktuell habe ich leider keine Zeit.")
+	SendChat("Hinterlassen Sie mir daher bitte eine Nachricht oder rufen Sie später erneut an.")
+	SendChat("/h")
+return
