@@ -45,9 +45,9 @@ g_main:
 
 
 	gui, main:font, , Courier New
-	gui, main:add, text, x150 y296, © Logan.Miller, 2015
+	gui, main:add, text, x60 y296, © Logan.Miller, 2015-2016
 
-	gui, main:show, w300 h310, Multi-Keybinder ;w390
+	gui, main:show, w300 h310, Miller-Binder ;w390
 }
 return
 ; ##################################### Main #####################################
