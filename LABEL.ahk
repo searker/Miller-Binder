@@ -84,6 +84,21 @@ Chatlog:
 			FormatTime, drugtime, %drugtime%, HH:mm:ss
 			AddMessageToChatWindow("Erntezeit gesetzt.")
 		}
+		Else If Instr(A_LoopReadLine, "bietet dir eine Reparatur deines Wagens")
+		{
+			RegExMatch(A_LoopReadLine, "AU).*\$(.*)\s.*", var)
+			var1 := RegExReplace(var1, "\.", "")
+			If(var1 <= 2000)
+				SendChat("/accept repair")
+		}
+		Else If Instr(A_LoopReadLine, "bietet dir die Betankung deines Autos")
+		{
+			RegExMatch(A_LoopReadLine, "AU).*\$(.*)\s.*", var)
+			var1 := RegExReplace(var1, "\.", "")
+			If(var1 <= 10000)
+				SendChat("/accept refill")
+		}
+		
 		Else If(spamprot == 1)
 		{
 			If Instr(A_LoopReadLine, "mindestens 1 Sekunde Abstand")
@@ -114,4 +129,17 @@ ChatlogCheck:
 			chatline := A_Index
 	}
 	chatlog_size := chatlog_size_now		
+return
+
+Save_Chatlog:
+	If(WinExist("GTA:SA:MP"))
+		gta_running := 1
+	else if(!WinExist("GTA:SA:MP") && gta_running == 1)
+	{
+		gta_running := 0
+		IfNotExist, %A_MyDocuments%\GTA San Andreas User Files\samp\chatlogs\
+			FileCreateDir, %A_MyDocuments%\GTA San Andreas User Files\samp\chatlogs
+		FileCopy, %A_MyDocuments%\GTA San Andreas User Files\samp\chatlog.txt, %A_MyDocuments%\GTA San Andreas User Files\samp\chatlogs\%A_DD%.%A_MM%.%A_YYYY%_%A_Min%.%A_Hour%_Chatlog.txt
+		MsgBox, Chatlog gespeichert!
+	}
 return
