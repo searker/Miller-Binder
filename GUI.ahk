@@ -28,7 +28,7 @@ g_main:
 	gui, main:add, GroupBox, xs ys+132 w280 h72 Section Center, Overlay
 
 	gui, main:font, , Tahoma
-	gui, main:add, Button, xs+10 ys+20 w80 h40, Allgemein
+	gui, main:add, Button, xs+10 ys+20 w80 h40 gg_ov_allgemein, Allgemein
 	gui, main:add, Button, xp+90 yp wp hp, Berufe
 	gui, main:add, Button, xp+90 yp wp hp, Fahrzeug
 	;~ gui, main:add, Button, xp+90 yp wp hp, 
@@ -160,6 +160,22 @@ g_autosys:
 return
 ; ############################ automatische Systeme ##############################
 
+g_ov_allgemein:
+	gui, main:destroy
+	
+	gui, ov_allgemein:add, GroupBox, x10 y10 w510 h460 section,
+	
+	gui, ov_allgemein:font, , Tahoma
+	gui, ov_allgemein:add, Checkbox, xs+10 ys+35 Checked%v_ov_hp% vv_ov_hp, HP
+	gui, ov_allgemein:add, Checkbox, xp yp+20 Checked%v_ov_location% vv_ov_location, Ort
+	gui, ov_allgemein:add, Checkbox, xp yp+20 Checked%v_ov_fps% vv_ov_fps, FPS
+	
+	gui, ov_allgemein:add, Button, x431 y473 w60 gg_ov_allgemein_z, Zurück
+	gui, ov_allgemein:add, Button, x361 y473 w60 gg_ov_allgemein_s, Speichern
+	
+	gui, ov_allgemein:show, w530 h498, Allgemeine Overlays
+return
+
 
 
 g_main_z:
@@ -179,6 +195,19 @@ g_autosys_s:
 	gui, autosys:submit, nohide
 
 	IniWrite, %v_lockcheck%, settings.ini, autosys, lockcheck
+return
+
+g_ov_allgemein_z:
+	Gui, ov_allgemein:destroy
+	goto, g_main
+return
+
+g_ov_allgemein_s:
+	gui, ov_allgemein:submit, nohide
+
+	IniWrite, %v_ov_hp%, settings.ini, ov_allgemein, hp
+	IniWrite, %v_ov_location%, settings.ini, ov_allgemein, location
+	IniWrite, %v_ov_fps%, settings.ini, ov_allgemein, fps
 return
 
 mainGuiClose:

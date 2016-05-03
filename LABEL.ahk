@@ -30,8 +30,21 @@ Overlay:
 		return
 	}
 	
-	TextSetString(ov_hp, GetPlayerHealth())
-	TextSetString(ov_fps, GetFrameRate())
+	if(v_ov_hp == 1)
+	{
+		TextSetShown(ov_hp, 1)
+		TextSetString(ov_hp, GetPlayerHealth())
+	}
+	else
+		TextSetShown(ov_hp, 0)
+	
+	if(v_ov_fps == 1)
+	{
+		TextSetShown(ov_fps, 1)
+		TextSetString(ov_fps, GetFrameRate())
+	}
+	else
+		TextSetShown(ov_fps, 0)
 	
 	if(drugtime != "")
 	{
@@ -41,7 +54,7 @@ Overlay:
 	else
 		TextSetShown(ov_drugtime, 0)
 	
-	if(getPlayerInteriorID() == 0)
+	if(getPlayerInteriorID() == 0 && v_ov_location == 1)
 	{
 		coords := GetCoordinates()
 		TextSetShown(ov_location, 1)
