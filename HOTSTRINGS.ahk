@@ -92,12 +92,14 @@ return
 :?:/ov::
 	co()
 	ov_main := !ov_main
-	if(ov_main == 0){
+	if(ov_main == 0)
+	{
 		SetTimer, Overlay, Off
 		DestroyAllVisual()
 		AddMessageToChatWindow("Ov aus")
 	}
-	else{
+	else
+	{
 		ov_hp := TextCreate("Arial", 5, true, false, 718, 92, 0xFF34CB5A, "HP", false, true)
 		ov_dl := TextCreate("Arial", 5, true, false, 110, 412, 0xFF26761B, "DL", true, true)
 		ov_location := TextCreate("Arial", 6, true, false, 79, 440, 0xFF585858, "LOCATION", true, true)

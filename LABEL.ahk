@@ -33,14 +33,16 @@ Overlay:
 	TextSetString(ov_hp, GetPlayerHealth())
 	TextSetString(ov_fps, GetFrameRate())
 	
-	If(drugtime != ""){
+	if(drugtime != "")
+	{
 		TextSetShown(ov_drugtime, 1)
 		TextSetString(ov_drugtime, drugtime)
 	}
 	else
 		TextSetShown(ov_drugtime, 0)
 	
-	If(getPlayerInteriorID() == 0){
+	if(getPlayerInteriorID() == 0)
+	{
 		coords := GetCoordinates()
 		TextSetShown(ov_location, 1)
 		TextSetString(ov_location, CalculateCity(coords[1], coords[2], coords[3]) . " | " . CalculateZone(coords[1], coords[2], coords[3]))
@@ -48,7 +50,8 @@ Overlay:
 	else
 		TextSetShown(ov_location, 0)
 	
-	If(isPlayerInAnyVehicle() == 1){
+	if(isPlayerInAnyVehicle() == 1)
+	{
 		TextSetShown(ov_dl, 1)
 		TextSetString(ov_dl, "DL: " . GetVehicleHealth())
 	}
@@ -73,35 +76,35 @@ Chatlog:
 			continue
 		
 		chatline := A_Index
-		If Instr(A_LoopReadLine, "/accept heal")
+		if Instr(A_LoopReadLine, "/accept heal")
 			SendChat("/accept heal")
-		Else If Instr(A_LoopReadLine, "/accept hotdog")
+		else if Instr(A_LoopReadLine, "/accept hotdog")
 			SendChat("/accept hotdog")
-		Else If Instr(A_LoopReadLine, "Samen eingepflanzt")
+		else if Instr(A_LoopReadLine, "Samen eingepflanzt")
 		{
 			drugtime := A_Now
 			drugtime += 15, Minutes
 			FormatTime, drugtime, %drugtime%, HH:mm:ss
 			AddMessageToChatWindow("Erntezeit gesetzt.")
 		}
-		Else If Instr(A_LoopReadLine, "bietet dir eine Reparatur deines Wagens")
+		else if Instr(A_LoopReadLine, "bietet dir eine Reparatur deines Wagens")
 		{
 			RegExMatch(A_LoopReadLine, "AU).*\$(.*)\s.*", var)
 			var1 := RegExReplace(var1, "\.", "")
-			If(var1 <= 2000)
+			if(var1 <= 2000)
 				SendChat("/accept repair")
 		}
-		Else If Instr(A_LoopReadLine, "bietet dir die Betankung deines Autos")
+		else if Instr(A_LoopReadLine, "bietet dir die Betankung deines Autos")
 		{
 			RegExMatch(A_LoopReadLine, "AU).*\$(.*)\s.*", var)
 			var1 := RegExReplace(var1, "\.", "")
-			If(var1 <= 10000)
+			if(var1 <= 10000)
 				SendChat("/accept refill")
 		}
 		
-		Else If(spamprot == 1)
+		else if(spamprot == 1)
 		{
-			If Instr(A_LoopReadLine, "mindestens 1 Sekunde Abstand")
+			if Instr(A_LoopReadLine, "mindestens 1 Sekunde Abstand")
 			{
 				AddMessageToChatWindow("Keybinder für 1,5 Sekunden pausiert.")
 				Suspend, On
@@ -109,7 +112,7 @@ Chatlog:
 				Suspend, Off
 				AddMessageToChatWindow("Keybinder wieder aktiviert.")
 			}
-			Else If Instr(A_LoopReadLine, "mindestens 5 Sekunden Abstand")
+			else if Instr(A_LoopReadLine, "mindestens 5 Sekunden Abstand")
 			{
 				AddMessageToChatWindow("Keybinder für 5,5 Sekunden pausiert.")
 				Suspend, On
@@ -132,7 +135,7 @@ ChatlogCheck:
 return
 
 Save_Chatlog:
-	If(WinExist("GTA:SA:MP"))
+	if(WinExist("GTA:SA:MP"))
 		gta_running := 1
 	else if(!WinExist("GTA:SA:MP") && gta_running == 1)
 	{
