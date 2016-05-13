@@ -30,7 +30,7 @@ g_main:
 	gui, main:font, , Tahoma
 	gui, main:add, Button, xs+10 ys+20 w80 h40 gg_ov_allgemein, Allgemein
 	gui, main:add, Button, xp+90 yp wp hp, Berufe
-	gui, main:add, Button, xp+90 yp wp hp, Fahrzeug
+	gui, main:add, Button, xp+90 yp wp hp gg_ov_fahrzeug, Fahrzeug
 	;~ gui, main:add, Button, xp+90 yp wp hp, 
 
 
@@ -155,6 +155,7 @@ g_autosys:
 	gui, autosys:add, Button, x431 y473 w60 gg_autosys_z, Zurück
 	gui, autosys:add, Button, x361 y473 w60 gg_autosys_s, Speichern
 	
+	gui, autosys:-SysMenu
 	gui, autosys:show, w530 h498, Automatische Systeme
 }
 return
@@ -173,7 +174,25 @@ g_ov_allgemein:
 	gui, ov_allgemein:add, Button, x431 y473 w60 gg_ov_allgemein_z, Zurück
 	gui, ov_allgemein:add, Button, x361 y473 w60 gg_ov_allgemein_s, Speichern
 	
+	gui, ov_allgemein:-SysMenu
 	gui, ov_allgemein:show, w530 h498, Allgemeine Overlays
+return
+
+g_ov_fahrzeug:
+	gui, main:destroy
+	
+	gui, ov_fahrzeug:add, GroupBox, x10 y10 w510 h460 section
+	
+	gui, ov_fahrzeug:font, , Tahoma
+	gui, ov_fahrzeug:add, Checkbox, xs+10 ys+35 Checked%v_ov_dl% vv_ov_dl, DL
+	gui, ov_fahrzeug:add, Checkbox, xp yp+20 Checked%v_ov_vehstatus% vv_ov_vehstatus, Status-Übersicht
+	gui, ov_fahrzeug:add, Checkbox, xp yp+20 Checked%v_ov_vehmodel% vv_ov_vehmodel, Modell-ID
+	
+	gui, ov_fahrzeug:add, Button, x431 y473 w60 gg_ov_fahrzeug_z, Zurück
+	gui, ov_fahrzeug:add, Button, x361 y473 w60 gg_ov_fahrzeug_s, Speichern
+	
+	gui, ov_fahrzeug:-SysMenu
+	gui, ov_fahrzeug:show, w530 h498, Fahrzeug-Overlays
 return
 
 
@@ -208,6 +227,19 @@ g_ov_allgemein_s:
 	IniWrite, %v_ov_hp%, settings.ini, ov_allgemein, hp
 	IniWrite, %v_ov_location%, settings.ini, ov_allgemein, location
 	IniWrite, %v_ov_fps%, settings.ini, ov_allgemein, fps
+return
+
+g_ov_fahrzeug_z:
+	Gui, ov_fahrzeug:destroy
+	goto, g_main
+return
+
+g_ov_fahrzeug_s:
+	gui, ov_fahrzeug:submit, nohide
+	
+	IniWrite, %v_ov_dl%, settings.ini, ov_fahrzeug, dl
+	IniWrite, %v_ov_vehstatus%, settings.ini, ov_fahrzeug, vehstatus
+	IniWrite, %v_ov_vehmodel%, settings.ini, ov_fahrzeug, vehmodel
 return
 
 mainGuiClose:
