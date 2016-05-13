@@ -14,7 +14,7 @@ g_main:
 
 	gui, main:font, , Tahoma
 	gui, main:add, Button, xs+10 ys+20 w80 h40 gg_allgemein, Allgemein
-	gui, main:add, Button, xp+90 yp wp hp, Berufe
+	gui, main:add, Button, xp+90 yp wp hp gg_berufe, Berufe
 	gui, main:add, Button, xp+90 yp wp hp, Belegbare Hotkeys
 	;~ gui, main:add, Button, xp+90 yp wp hp, 
 
@@ -137,6 +137,41 @@ g_allgemein:
 return
 ; ################################## Allgemein ###################################
 
+g_berufe:
+	gui, main:destroy
+	
+	gui, berufe:add, GroupBox, x10 y10 w340 h322 section
+	
+	gui, berufe:font, , Tahoma
+	gui, berufe:add, Button, xs+10 ys+20 w100 h40, Anwalt
+	gui, berufe:add, Button, xp+110 yp wp hp, Autodieb
+	gui, berufe:add, Button, xp+110 yp wp hp, Bauer
+	
+	gui, berufe:add, Button, xs+10 ys+70 w100 h40, Bestatter
+	gui, berufe:add, Button, xp+110 yp wp hp, Detektiv
+	gui, berufe:add, Button, xp+110 yp wp hp, Drogendealer
+	
+	gui, berufe:add, Button, xs+10 ys+120 w100 h40, Hacker
+	gui, berufe:add, Button, xp+110 yp wp hp, Hochseefischer
+	gui, berufe:add, Button, xp+110 yp wp hp, Hotdogverkäufer
+	
+	gui, berufe:add, Button, xs+10 ys+170 w100 h40, Hure
+	gui, berufe:add, Button, xp+110 yp wp hp, Kurierfahrer
+	gui, berufe:add, Button, xp+110 yp wp hp, Mechaniker
+	
+	gui, berufe:add, Button, xs+10 ys+220 w100 h40, Müllmann
+	gui, berufe:add, Button, xp+110 yp wp hp, Pilot
+	gui, berufe:add, Button, xp+110 yp wp hp, Pizzaboy
+	
+	gui, berufe:add, Button, xs+10 ys+270 w100 h40, Taschendieb
+	gui, berufe:add, Button, xp+110 yp wp hp, Trucker
+	gui, berufe:add, Button, xp+110 yp wp hp, Waffenhändler
+	
+	gui, berufe:add, Button, x291 y335 w60 gg_berufe_z, Zurück
+	
+	gui, berufe:-SysMenu
+	gui, berufe:show, w360 h360, Berufe
+return
 
 ; ############################ automatische Systeme ##############################
 g_autosys:
@@ -205,6 +240,11 @@ g_allgemein_z:
 	goto, g_main
 return
 
+g_berufe_z:
+	gui, berufe:destroy
+	goto, g_main
+return
+
 g_autosys_z:
 	Gui, autosys:destroy
 	goto, g_main
@@ -248,3 +288,16 @@ mainGuiClose:
 
 debugGuiClose:
 	return
+	
+berufeGuiEscape:
+	gui, berufe:destroy
+	goto, g_main
+return
+
+dr:
+	Reload
+return
+
+dq:
+	ExitApp
+return

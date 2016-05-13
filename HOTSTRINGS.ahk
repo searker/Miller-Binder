@@ -27,11 +27,11 @@ return
 return
 
 :?:/sd::
-	SendInput /selldrugs{space}{space}2 4000{left 7}
+	SendInput /selldrugs{space 2}2 4000{left 7}
 return
 
 :?:/sdb::
-	SendInput /selldrugs{space}{space}2 4000 bar{left 11}
+	SendInput /selldrugs{space 2}2 4000 bar{left 11}
 return
 
 :?:/ed::

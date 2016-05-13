@@ -14,14 +14,6 @@ LockCheck:
 }
 return
 
-dr:
-	Reload
-return
-
-dq:
-	ExitApp
-return
-
 Overlay:
 	IfWinNotActive, GTA:SA:MP
 		return
