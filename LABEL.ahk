@@ -6,6 +6,8 @@ LockCheck:
 			SetTimer, LockCheck, 500
 		else
 			SetTimer, LockCheck, 1500
+		if(getVehicleModelId() == 509 || getVehicleModelId() == 481 || getVehicleModelId() == 510)
+			return
 		if(GetVehicleLockState()==0 && GetVehicleEngineState()==1 && IsPlayerDriver()==1 && WinActive("GTA:SA:MP"))
 			SendChat("/lock")
 	}
@@ -155,7 +157,7 @@ Save_Chatlog:
 		gta_running := 0
 		IfNotExist, %A_MyDocuments%\GTA San Andreas User Files\samp\chatlogs\
 			FileCreateDir, %A_MyDocuments%\GTA San Andreas User Files\samp\chatlogs
-		FileCopy, %A_MyDocuments%\GTA San Andreas User Files\samp\chatlog.txt, %A_MyDocuments%\GTA San Andreas User Files\samp\chatlogs\%A_DD%.%A_MM%.%A_YYYY%_%A_Min%.%A_Hour%_Chatlog.txt
+		FileCopy, %A_MyDocuments%\GTA San Andreas User Files\samp\chatlog.txt, %A_MyDocuments%\GTA San Andreas User Files\samp\chatlogs\%A_DD%.%A_MM%.%A_YYYY%_%A_Hour%.%A_Min%_Chatlog.txt
 		MsgBox, Chatlog gespeichert!
 	}
 return

@@ -103,7 +103,7 @@ return
 	if(A_Hour >= 10 && A_Hour <20)
 		SendChat("Guten Tag, wie kann ich Ihnen helfen?")
 	if(A_Hour >= 20)
-		SendChat("Guten Abend, wie kann ich Ihnen hefen?")
+		SendChat("Guten Abend, wie kann ich Ihnen helfen?")
 	if(A_Hour >= 00 && A_Hour <05)
 		SendChat("Wie kann ich Ihnen helfen?")
 	if(A_Hour >= 05 && A_Hour <10)
@@ -162,12 +162,17 @@ return
 
 ~NumpadMult::
 	ic()
-	SendChat("/ntogphone")
+	SendChat("/togphone")
 return
 
 ~^NumpadMult::
 	ic()
 	SendChat("/n Stop!")
+return
+
+~!NumpadMult::
+	ic()
+	SendChat("/ntogphone")
 return
 
 ~NumpadDiv::

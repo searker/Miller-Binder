@@ -12,6 +12,11 @@ return
 	SendChat("/put drugs all")
 return
 
+:?:/pma::
+	co()
+	SendChat("/put mats all")
+return
+
 :?:/td::
 	SendInput /gtake drugs{space}
 return
@@ -131,4 +136,16 @@ return
 		AddMessageToChatWindow("Spamschutz aktiviert")
 	else
 		AddMessageToChatWindow("Spamschutz deaktiviert")
+return
+
+:?:/mg::
+	co()
+	SendChat("/materials get 15")
+	SendChat("-")
+return
+
+:?:/md::
+	co()
+	SendChat("/materials deliver")
+	SendChat("-")
 return
