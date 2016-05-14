@@ -29,7 +29,7 @@ g_main:
 
 	gui, main:font, , Tahoma
 	gui, main:add, Button, xs+10 ys+20 w80 h40 gg_ov_allgemein, Allgemein
-	gui, main:add, Button, xp+90 yp wp hp, Berufe
+	gui, main:add, Button, xp+90 yp wp hp gg_ov_berufe, Berufe
 	gui, main:add, Button, xp+90 yp wp hp gg_ov_fahrzeug, Fahrzeug
 	;~ gui, main:add, Button, xp+90 yp wp hp, 
 
@@ -213,6 +213,42 @@ g_ov_allgemein:
 	gui, ov_allgemein:show, w530 h498, Allgemeine Overlays
 return
 
+g_ov_berufe:
+	gui, main:destroy
+	
+	gui, ov_berufe:add, GroupBox, x10 y10 w340 h322 section
+	
+	gui, ov_berufe:font, , Tahoma
+	gui, ov_berufe:add, Button, xs+10 ys+20 w100 h40, Anwalt
+	gui, ov_berufe:add, Button, xp+110 yp wp hp, Autodieb
+	gui, ov_berufe:add, Button, xp+110 yp wp hp, Bauer
+	
+	gui, ov_berufe:add, Button, xs+10 ys+70 w100 h40, Bestatter
+	gui, ov_berufe:add, Button, xp+110 yp wp hp, Detektiv
+	gui, ov_berufe:add, Button, xp+110 yp wp hp, Drogendealer
+	
+	gui, ov_berufe:add, Button, xs+10 ys+120 w100 h40, Hacker
+	gui, ov_berufe:add, Button, xp+110 yp wp hp, Hochseefischer
+	gui, ov_berufe:add, Button, xp+110 yp wp hp, Hotdogverkäufer
+	
+	gui, ov_berufe:add, Button, xs+10 ys+170 w100 h40, Hure
+	gui, ov_berufe:add, Button, xp+110 yp wp hp, Kurierfahrer
+	gui, ov_berufe:add, Button, xp+110 yp wp hp, Mechaniker
+	
+	gui, ov_berufe:add, Button, xs+10 ys+220 w100 h40, Müllmann
+	gui, ov_berufe:add, Button, xp+110 yp wp hp, Pilot
+	gui, ov_berufe:add, Button, xp+110 yp wp hp, Pizzaboy
+	
+	gui, ov_berufe:add, Button, xs+10 ys+270 w100 h40, Taschendieb
+	gui, ov_berufe:add, Button, xp+110 yp wp hp, Trucker
+	gui, ov_berufe:add, Button, xp+110 yp wp hp, Waffenhändler
+	
+	gui, ov_berufe:add, Button, x291 y335 w60 gg_ov_berufe_z, Zurück
+	
+	gui, ov_berufe:-SysMenu
+	gui, ov_berufe:show, w360 h360, Overlay für Berufe
+return
+
 g_ov_fahrzeug:
 	gui, main:destroy
 	
@@ -267,6 +303,11 @@ g_ov_allgemein_s:
 	IniWrite, %v_ov_hp%, settings.ini, ov_allgemein, hp
 	IniWrite, %v_ov_location%, settings.ini, ov_allgemein, location
 	IniWrite, %v_ov_fps%, settings.ini, ov_allgemein, fps
+return
+
+g_ov_berufe_z:
+	gui, ov_berufe:destroy
+	goto, g_main
 return
 
 g_ov_fahrzeug_z:
