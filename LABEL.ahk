@@ -114,17 +114,17 @@ Chatlog:
 			if Instr(A_LoopReadLine, "mindestens 1 Sekunde Abstand")
 			{
 				AddMessageToChatWindow("Keybinder für 1,5 Sekunden pausiert.")
-				Suspend, On
+				BlockChatInput()
 				Sleep 1500
-				Suspend, Off
+				UnBlockChatInput()
 				AddMessageToChatWindow("Keybinder wieder aktiviert.")
 			}
 			else if Instr(A_LoopReadLine, "mindestens 5 Sekunden Abstand")
 			{
 				AddMessageToChatWindow("Keybinder für 5,5 Sekunden pausiert.")
-				Suspend, On
+				BlockChatInput()
 				Sleep 5500
-				Suspend, Off	
+				UnBlockChatInput()
 				AddMessageToChatWindow("Keybinder wieder aktiviert.")
 			}
 		}
