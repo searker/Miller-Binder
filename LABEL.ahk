@@ -109,6 +109,50 @@ Chatlog:
 				SendChat("/accept refill")
 		}
 		
+		else if(Instr(A_LoopReadLine, "repref") && Instr(A_LoopReadLine, "sagt:") && mechaduty == 1)
+		{
+			RegExMatch(A_LoopReadLine, "AU).*\s(.*)\s.*", var)
+			SendChat("/repair " . var1 . " 1")
+			RegExMatch(A_LoopReadLine, "AU).*\s(.*)\s.*", var)
+			SendChat("/refill " . var1 . " 150 1")
+			refkunde := var1			
+		}
+		
+		else if(Instr(A_LoopReadLine, "rep") && Instr(A_LoopReadLine, "sagt:") && mechaduty == 1)
+		{
+			RegExMatch(A_LoopReadLine, "AU).*\s(.*)\s.*", var)
+			SendChat("/repair " . var1 . " 1")
+		}
+		
+		else if(Instr(A_LoopReadLine, "ref") && Instr(A_LoopReadLine, "sagt:") && mechaduty == 1)
+		{
+			RegExMatch(A_LoopReadLine, "AU).*\s(.*)\s.*", var)
+			SendChat("/refill " . var1 . " 150 1")
+			refkunde := var1
+		}
+		
+		else if(Instr(A_LoopReadLine, "fill") && Instr(A_LoopReadLine, "sagt:") && mechaduty == 1)
+		{
+			RegExMatch(A_LoopReadLine, "AU).*\s(.*)\s.*", var)
+			SendChat("/refill " . var1 . " 150 1")
+			refkunde := var1
+		}
+		
+		else if(Instr(A_LoopReadLine, "beides") && Instr(A_LoopReadLine, "sagt:") && mechaduty == 1)
+		{
+			RegExMatch(A_LoopReadLine, "AU).*\s(.*)\s.*", var)
+			SendChat("/repair " . var1 . " 1")
+			RegExMatch(A_LoopReadLine, "AU).*\s(.*)\s.*", var)
+			SendChat("/refill " . var1 . " 150 1")
+			refkunde := var1			
+		}
+		
+		else if(Instr(A_LoopReadLine, "Du kannst das Fahrzeug nur noch mit") && mechaduty == 1)
+		{
+			RegExMatch(A_LoopReadLine, "AU).*\.\s(.*)\s.*", var)
+			SendChat("/refill " . refkunde . " " . var1 . " 1")
+		}
+		
 		else if(spamprot == 1)
 		{
 			if Instr(A_LoopReadLine, "mindestens 1 Sekunde Abstand")

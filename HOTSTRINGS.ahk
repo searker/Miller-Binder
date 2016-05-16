@@ -74,6 +74,16 @@ return
 	SendChat("/sellimport 1000")
 return
 
+:?:/lf::
+	co()
+	SendChat("/loadfish 1500")
+return
+
+:?:/sf::
+	co()
+	SendChat("/sellfish 1500")
+return
+
 :?:/sio::
 	co()
 	SendChat("/sellimport 1500")
@@ -148,4 +158,13 @@ return
 	co()
 	SendChat("/materials deliver")
 	SendChat("-")
+return
+
+:?:/mecha::
+	co()
+	mechaduty := !mechaduty
+	if(mechaduty == 1)
+		AddMessageToChatWindow("Mechanikermodus aktiviert")
+	else
+		AddMessageToChatWindow("Mechanikermodus deaktiviert")
 return

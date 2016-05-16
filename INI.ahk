@@ -15,3 +15,4 @@ Loop, Read, %A_MyDocuments%\GTA San Andreas User Files\samp\chatlog.txt
 }
 chatlog_size := 0
 spamprot := 1
+mechaduty := 0
