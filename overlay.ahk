@@ -1,4 +1,8 @@
-﻿#NoEnv 
+﻿; ####################################################################
+; # External API. No Functions are directly related to the Keybinder #
+; ####################################################################
+
+#NoEnv 
 
 PATH_OVERLAY := RelToAbs(A_ScriptDir, "dx9_overlay.dll")
 

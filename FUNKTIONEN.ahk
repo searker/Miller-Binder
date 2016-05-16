@@ -1,10 +1,10 @@
-ic()
+ic() ; checks if player is in chat; ergo if the chat-window is open
 {
 	if(IsInChat())
 		Exit
 }
 
-co()
+co() ; closes the chat-window and deletes its current contents
 {
 	if(IsInChat())
 	{

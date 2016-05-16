@@ -11,8 +11,8 @@ IniRead, v_ov_vehmodel, settings.ini, ov_fahrzeug, vehmodel, 1
 ov_main := 0
 Loop, Read, %A_MyDocuments%\GTA San Andreas User Files\samp\chatlog.txt
 {
-	chatline := A_Index
+	chatline := A_Index ; Gets the current amount of lines in the Chatlog.txt
 }
-chatlog_size := 0
-spamprot := 1
-mechaduty := 0
+chatlog_size := 0 ; For Chatlog-Saving
+spamprot := 1 ; For Spamkick-Protection
+mechaduty := 0 ; For automatic Mechanic-System

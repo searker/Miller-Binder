@@ -1,3 +1,20 @@
+
+; ################################## GUI-TREE ####################################
+;  main
+;  |-- allgemein
+;  |-- berufe
+;  |-- autosys
+;  |-- ov_allgemein
+;  |-- ov_berufe
+;  |-- ov_fahrzeug
+;  debug
+; ################################## GUI-TREE ####################################
+
+
+
+
+
+
 ; #################################### Debug #####################################
 	
 	gui, debug:add, button, x50 w80 h30 gdr, Reload
@@ -137,6 +154,7 @@ g_allgemein:
 return
 ; ################################## Allgemein ###################################
 
+; ################################### Berufe #####################################
 g_berufe:
 	gui, main:destroy
 	
@@ -172,6 +190,7 @@ g_berufe:
 	gui, berufe:-SysMenu
 	gui, berufe:show, w360 h360, Berufe
 return
+; ################################### Berufe #####################################
 
 ; ############################ automatische Systeme ##############################
 g_autosys:
@@ -196,6 +215,7 @@ g_autosys:
 return
 ; ############################ automatische Systeme ##############################
 
+; ############################# Overlay-Allgemein ################################
 g_ov_allgemein:
 	gui, main:destroy
 	
@@ -212,7 +232,9 @@ g_ov_allgemein:
 	gui, ov_allgemein:-SysMenu
 	gui, ov_allgemein:show, w530 h498, Allgemeine Overlays
 return
+; ############################# Overlay-Allgemein ################################
 
+; ############################### Overlay-Berufe #################################
 g_ov_berufe:
 	gui, main:destroy
 	
@@ -248,7 +270,9 @@ g_ov_berufe:
 	gui, ov_berufe:-SysMenu
 	gui, ov_berufe:show, w360 h360, Overlay für Berufe
 return
+; ############################### Overlay-Berufe #################################
 
+; ############################## Overlay-Fahrzeug ################################
 g_ov_fahrzeug:
 	gui, main:destroy
 	
@@ -265,22 +289,22 @@ g_ov_fahrzeug:
 	gui, ov_fahrzeug:-SysMenu
 	gui, ov_fahrzeug:show, w530 h498, Fahrzeug-Overlays
 return
-
+; ############################## Overlay-Fahrzeug ################################
 
 
 g_main_z:
 	ExitApp
-	
+; ############################################
 g_allgemein_z:
 	Gui, allgemein:destroy
 	goto, g_main
 return
-
+; ############################################
 g_berufe_z:
 	gui, berufe:destroy
 	goto, g_main
 return
-
+; ############################################
 g_autosys_z:
 	Gui, autosys:destroy
 	goto, g_main
@@ -291,7 +315,7 @@ g_autosys_s:
 
 	IniWrite, %v_lockcheck%, settings.ini, autosys, lockcheck
 return
-
+; ############################################
 g_ov_allgemein_z:
 	Gui, ov_allgemein:destroy
 	goto, g_main
@@ -304,12 +328,12 @@ g_ov_allgemein_s:
 	IniWrite, %v_ov_location%, settings.ini, ov_allgemein, location
 	IniWrite, %v_ov_fps%, settings.ini, ov_allgemein, fps
 return
-
+; ############################################
 g_ov_berufe_z:
 	gui, ov_berufe:destroy
 	goto, g_main
 return
-
+; ############################################
 g_ov_fahrzeug_z:
 	Gui, ov_fahrzeug:destroy
 	goto, g_main
@@ -322,19 +346,17 @@ g_ov_fahrzeug_s:
 	IniWrite, %v_ov_vehstatus%, settings.ini, ov_fahrzeug, vehstatus
 	IniWrite, %v_ov_vehmodel%, settings.ini, ov_fahrzeug, vehmodel
 return
-
+; ############################################
 mainGuiClose:
 	ExitApp
 	return
-
+; ############################################
 debugGuiClose:
 	return
-	
-berufeGuiEscape:
-	gui, berufe:destroy
-	goto, g_main
-return
+; ############################################	
 
+
+; ################## DEBUG ###################
 dr:
 	Reload
 return
@@ -342,3 +364,4 @@ return
 dq:
 	ExitApp
 return
+; ################## DEBUG ###################

@@ -1,4 +1,4 @@
-~r::
+~r:: ; Sends the last manual Chatline again
 {
 	ic()
 	SendInput t
@@ -7,7 +7,7 @@
 }
 return
 
-~y::
+~y:: ; Car-System
 {
 	ic()
 	if(IsPlayerDriver())
@@ -37,7 +37,7 @@ return
 }
 return
 
-~x::
+~x:: ; /(car)lock - System
 {
 	ic()
 	if(IsPlayerInAnyVehicle())
@@ -60,7 +60,7 @@ return
 	SendChat("/opencargo")
 return
 
-~j::
+~j:: ; Enters or leaves an interior
 {
 	ic()
 	if(GetPlayerInteriorId() == 0)
@@ -75,17 +75,17 @@ return
 	SendInput t/notafk{space}
 return	
 
-~Numpad1::
+~Numpad1:: ; Drug-Dealer-specific
 	ic()
 	SendChat("/drugs buy 60")
 return
 
-~Numpad2::
+~Numpad2:: ; Drug-Dealer-specific
 	ic()
 	SendChat("/drugprice")
 return
 
-~Numpad3::
+~Numpad3:: ; Drug-Dealer-specific
 	ic()
 	SendChat("/gardenshop")
 	Loop, 5
@@ -97,7 +97,7 @@ return
 	SendInput {escape}
 return
 
-~Numpad4::
+~Numpad4:: ; greets another player based on daytime
 {
 	ic()
 	if(A_Hour >= 10 && A_Hour <20)
@@ -111,7 +111,7 @@ return
 }
 return
 
-~^Numpad4::
+~^Numpad4:: ; wishes farewell to another player based on daytime
 {
 	ic()
 	if(A_Hour >= 10 && A_Hour <20)
@@ -125,27 +125,27 @@ return
 }
 return
 
-~Numpad5::
+~Numpad5:: ; Fishing-specific
 	ic()
 	SendChat("/fish")
 return
 
-~^Numpad5::
+~^Numpad5:: ; Fishing-specific
 	ic()
 	SendChat("/fishes")
 return
 
-~Numpad6::
+~Numpad6:: ; Fishing-specific
 	ic()
 	SendChat("/throwback")
 return
 
-~ß::
+~ß:: ; Faction-specific
 	ic()
 	SendChat("/members")
 return
 
-~^ß::
+~^ß:: ; shows online Friends in Chat
 	ic()
 	SendChat("/friends s")
 return
@@ -160,27 +160,27 @@ return
 	SendChat("/gate")
 return
 
-~NumpadMult::
+~NumpadMult:: ; Premium-Specific (or with upgrade)
 	ic()
 	SendChat("/togphone")
 return
 
-~^NumpadMult::
+~^NumpadMult:: ; News-Specific
 	ic()
 	SendChat("/n Stop!")
 return
 
-~!NumpadMult::
+~!NumpadMult:: ; News-Specific
 	ic()
 	SendChat("/ntogphone")
 return
 
-~NumpadDiv::
+~NumpadDiv:: ; News-Specific
 	ic()
 	SendChat("/showme orange")
 return
 
-~^NumpadDiv::
+~^NumpadDiv:: ; clears the current /showme
 	ic()
 	SendChat("/showme unsichtbar")
 return

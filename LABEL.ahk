@@ -1,4 +1,4 @@
-LockCheck:
+LockCheck: ; Locks the current vehicle if the System is enabled
 {
 	if(v_lockcheck == 1)
 	{
@@ -14,7 +14,7 @@ LockCheck:
 }
 return
 
-Overlay:
+Overlay: ; Main Label handling all Overlay-Stuff
 	IfWinNotActive, GTA:SA:MP
 		return
 	IfWinNotExist, GTA:SA:MP
@@ -66,7 +66,7 @@ Overlay:
 		TextSetShown(ov_dl, 0)
 return
 
-Chatlog:
+Chatlog: ; Main Label handling all Chatlog-dependent-Stuff
 	FileGetSize, chatlog_size_now, %A_MyDocuments%\GTA San Andreas User Files\samp\chatlog.txt
 	if(chatlog_size_now < chatlog_size)
 	{
@@ -175,7 +175,7 @@ Chatlog:
 	}
 return
 
-ChatlogCheck:
+ChatlogCheck: ; Seemingly obsolete?
 	FileGetSize, chatlog_size_now, %A_MyDocuments%\GTA San Andreas User Files\samp\chatlog.txt
 	if(chatlog_size_now < chatlog_size)
 	{
@@ -185,7 +185,7 @@ ChatlogCheck:
 	chatlog_size := chatlog_size_now		
 return
 
-Save_Chatlog:
+Save_Chatlog: ; Archives the lates Chatlog.txt when the Game is being closed
 	if(WinExist("GTA:SA:MP"))
 		gta_running := 1
 	else if(!WinExist("GTA:SA:MP") && gta_running == 1)

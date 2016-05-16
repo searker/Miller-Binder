@@ -3,6 +3,10 @@
 ; https://github.com/paul-phoenix
 ; ####################
 
+; ####################################################################
+; # External API. No Functions are directly related to the Keybinder #
+; ####################################################################
+
 
 
 ; ErrorLevels

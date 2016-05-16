@@ -1,23 +1,23 @@
-:?:/op::
+:?:/op:: ; opens Gate at Zivispawn
 	co()
 	SendChat("/oparking")
 return
 
-:?:/pd::
+:?:/pd:: ; deposits drugs
 	SendInput /put drugs{space}
 return
 
-:?:/pda::
+:?:/pda:: ; deposits all drugs
 	co()
 	SendChat("/put drugs all")
 return
 
-:?:/pma::
+:?:/pma:: ; deposits all mats
 	co()
 	SendChat("/put mats all")
 return
 
-:?:/td::
+:?:/td:: ; withdraws drugs
 	SendInput /gtake drugs{space}
 return
 
@@ -26,11 +26,11 @@ return
 	SendChat("/usedrugs 2")
 return
 
-:?:/sd::
+:?:/sd:: ; Drug-Dealer-Specific
 	SendInput /selldrugs{space 2}2 4000{left 7}
 return
 
-:?:/sdb::
+:?:/sdb:: ; Drug-Dealer-Specific
 	SendInput /selldrugs{space 2}2 4000 bar{left 11}
 return
 
@@ -39,7 +39,7 @@ return
 	SendChat("/eatdonut")
 return
 
-:?:/bd::
+:?:/bd:: ; Buys 10 Donuts in a valid store
 	co()
 	SendChat("/buydonut")
 	sleep 750
@@ -48,63 +48,63 @@ return
 	SendInput 10{enter}
 return
 
-:?:/dp::
+:?:/dp:: ; Drug-Dealer-specific
 	co()
 	SendChat("/drugs plant")
 return
 
-:?:/dh::
+:?:/dh:: ; Drug-Dealer-specific
 	co()
 	SendChat("/drugs harvest")
 return
 
-:?:/li::
+:?:/li:: ; Trucker-specific
 	co()
 	SendChat("/loadimport 1000")
 return
 
-:?:/lio::
+:?:/lio:: ; Trucker-specific
 	co()
 	SendChat("/loadimport 1000")
 	SendChat("/overload 500")
 return
 
-:?:/si::
+:?:/si:: ; Trucker-specific
 	co()
 	SendChat("/sellimport 1000")
 return
 
-:?:/lf::
+:?:/lf:: ; Trucker-specific
 	co()
 	SendChat("/loadfish 1500")
 return
 
-:?:/sf::
+:?:/sf:: ; Trucker-specific
 	co()
 	SendChat("/sellfish 1500")
 return
 
-:?:/sio::
+:?:/sio:: ; Trucker-specific
 	co()
 	SendChat("/sellimport 1500")
 return
 
-:?:/gtd::
+:?:/gtd:: ; Trucker-specific
 	co()
 	SendChat("/gettrailer destroy")
 return
 
-:?:/gtw::
+:?:/gtw:: ; Trucker-specific
 	co()
 	SendChat("/gettrailer waren")
 return
 
-:?:/gtb::
+:?:/gtb:: ; Trucker-specific
 	co()
 	SendChat("/gettrailer benzin")
 return
 
-:?:/ov::
+:?:/ov:: ; Toggles Overlay (for now)
 	co()
 	ov_main := !ov_main
 	if(ov_main == 0)
@@ -125,13 +125,13 @@ return
 	}
 return
 
-:?:/sm::
+:?:/sm:: ; News-specific
 	co()
 	SendChat("/m Wer Invite braucht: ""/showme rot"" | Wer Invite hat: ""/showme gruen""")
 	SendChat("/m Genau so schreiben, dann klappt das auch.")
 return
 
-:?:/ab::
+:?:/ab:: ; Mailbox
 	co()
 	SendChat("/p")
 	SendChat("Sie sind mit Logan Miller verbunden. Aktuell habe ich leider keine Zeit.")
@@ -139,7 +139,7 @@ return
 	SendChat("/h")
 return
 
-:?:/spam::
+:?:/spam:: ; Toggles Spam-Protection
 	co()
 	spamprot := !spamprot
 	if(spamprot == 1)
@@ -148,19 +148,19 @@ return
 		AddMessageToChatWindow("Spamschutz deaktiviert")
 return
 
-:?:/mg::
+:?:/mg:: ; Weapon-Dealer-specific
 	co()
 	SendChat("/materials get 15")
 	SendChat("-")
 return
 
-:?:/md::
+:?:/md:: ; Weapon-Dealer-specific
 	co()
 	SendChat("/materials deliver")
 	SendChat("-")
 return
 
-:?:/mecha::
+:?:/mecha:: ; Toggles Mechanic-System (for now)
 	co()
 	mechaduty := !mechaduty
 	if(mechaduty == 1)
