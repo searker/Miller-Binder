@@ -160,6 +160,11 @@ return
 	SendChat("/gate")
 return
 
+~NumpadSub::
+	ic()
+	SendChat("/nduty")
+return
+
 ~NumpadMult:: ; Premium-Specific (or with upgrade)
 	ic()
 	SendChat("/togphone")
